@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Social Media with Task Assignment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+        
+        }
+    
+        #mt-5 {
+            margin-top: 3rem;
+        }
+    
+        #card {
+            margin-bottom: 20px;
+        }
+    
+        #card-title {
+            font-size: 1.25rem;
+        }
+    
+        #card-text {
+            font-size: 0.9rem;
+        }
+    
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    
+        #btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+    
+        #btn-primary:hover {
+            background-color: #0056b3;
+        }
+    
+        #taskList {
+            list-style: none;
+            padding: 0;
+        }
+    
+        #list-group-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 5px;
+            background-color: #f9f9f9;
+        }
+    
+        #list-group-item:hover {
+            background-color: #e9e9e9;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Welcome to Our Social Media Platform</h1>
+        
+    
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        User Profile
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Prashant Kumar Sah</h5>
+                        <p class="card-text">Give respect take respect.</p>
+                        <img src="prashant.jpg" alt="Profile Picture" width="150">
+                    </div>
+                </div>
+            </div>
+            
+          
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        Task Assignment
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Assign a Task</h5>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="taskTitle" placeholder="Task Title">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="taskDescription" placeholder="Task Description"></textarea>
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="assignTask()">Assign Task</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div class="mt-4">
+            <h2>Task List</h2>
+            <ul id="taskList" class="list-group">
+              
+            </ul>
+        </div>
+    </div>
+
+    <script>
+
+        function assignTask() {
+            const taskTitle = document.getElementById('taskTitle').value;
+            const taskDescription = document.getElementById('taskDescription').value;
+            const taskList = document.getElementById('taskList');
+            const taskItem = document.createElement('li');
+            taskItem.className = 'list-group-item';
+            taskItem.innerHTML = `<strong>${taskTitle}</strong>: ${taskDescription}`;
+            taskList.appendChild(taskItem);
+            document.getElementById('taskTitle').value = '';
+            document.getElementById('taskDescription').value = '';
+        }
+    </script>
+</body>
+</html>
