@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>Blog Page</title>
+    
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    #blog-container h1 {
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        background-color: #0c0c39;
+        color: white;
+    }
+
+    #editor {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 100%;
+        resize: vertical;
+    }
+
+    button {
+        background-color: #1b856d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #1e1e4d;
+    }
+
+    #preview {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 20px;
+        background-color: white;
+    }
+
+    #preview iframe {
+        display: block;
+        margin: 10px 0;
+   
+
+        }
+    </style>
+</head>
+<body>
+    <div id="blog-container">
+        <h1>My first Blog</h1>
+
+        <div>
+            <textarea id="editor" rows="10" cols="50" placeholder="Write your blog post here..."></textarea>
+        </div>
+        <button onclick="addText()">Add Text</button>
+        <button onclick="addImage()">Add Image</button>
+        <button onclick="addVideo()">Add Video</button>
+        <div id="preview"></div>
+    </div>
+
+    <script>
+
+        function addText() {
+            const text = document.getElementById('editor').value;
+            const preview = document.getElementById('preview');
+            const textElement = document.createElement('p');
+            textElement.innerText = text;
+            preview.appendChild(textElement);
+        }
+
+
+        function addImage() {
+            const imageUrl = prompt('Enter the URL of the image:');
+            if (imageUrl) {
+                const preview = document.getElementById('preview');
+                const imageElement = document.createElement('img');
+                imageElement.src = imageUrl;
+                preview.appendChild(imageElement);
+            }
+        }
+
+
+        function addVideo() {
+            const videoUrl = prompt('Enter the URL of the video (YouTube, Vimeo, etc.):');
+            if (videoUrl) {
+                const preview = document.getElementById('preview');
+                const videoElement = document.createElement('iframe');
+                videoElement.width = '560';
+                videoElement.height = '315';
+                videoElement.src = videoUrl;
+                preview.appendChild(videoElement);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
